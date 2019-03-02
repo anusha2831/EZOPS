@@ -1,0 +1,67 @@
+<section class="data-grid">
+ 
+  <!--table search form-->
+  <form novalidate [formGroup]="searchForm"  (ngSubmit)="searchData()" class="searchform"> 
+      <div class="form-group">
+        <div class="form-align">
+          Field:<select name="searchHeader"  *ngIf="data" formControlName="searchHeader">
+                  <option [value]="header" *ngFor="let header of tableHeaders">{{header}}</option>
+                </select>
+        </div>
+        <div class="form-align lpad10">
+          Contains:<input type="text" formControlName="searchText" >
+          <div *ngIf="(searchForm.get('searchText').dirty || searchForm.get('searchText').touched) && formSubmitted && searchForm.get('searchText').hasError('required')" class="textError">
+              Text required to search
+          </div>
+        </div>
+        <div class="form-align lpad10">
+          <button class="btn btn-primary" [disabled]="this.searchForm.invalid">Search</button>
+          <button class="btn btn-primary" (click)="resetSearch()">Reset</button>
+        </div>
+      </div> 
+   </form>
+
+<div *ngIf="data"> <!--Load table after data is fetched-->
+  <div class="table-wrapper">
+  <table >
+    <thead>
+      <tr>
+        <th *ngFor="let header of tableHeaders" (click)="sortData($event)">{{header}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let index of data">
+        <td *ngFor="let header of tableHeaders">{{index[header]}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <div class="paging">
+    <label for="rowNum">Go to Page:</label>
+    <input type="number" value="{{pageNum}}" id="rowNum" size=4 (change)="pageNumChange($event)" 
+         [max]="(+totalRecords/(+rowsPerPage)%(+rowsPerPage)==0)? totalRecords/(+rowsPerPage) : totalRecords/(+rowsPerPage)+1" min="1">
+    
+    <label for="rowCount" class="lpad10">Show rows:</label>
+    <select name="rowCount" id="rowCount" (change)="pageCountChange($event)">
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+      </select>
+    <span class="lpad10">Showing {{(pageNum-1)*rowsPerPage}} -</span>
+    <span *ngIf="this.pageNum >= (+this.totalRecords/(+this.rowsPerPage))"> {{totalRecords}} </span>
+    <span *ngIf="this.pageNum<= (+this.totalRecords/(+this.rowsPerPage))"> {{(pageNum-1)*(+rowsPerPage)+(+rowsPerPage)}} </span>
+      <span> of {{totalRecords}}</span>    
+    <button [disabled]="this.pageNum<=1" (click)="getLeftPage()"><</button>
+    <button [disabled]="this.pageNum>= (+this.totalRecords/(+this.rowsPerPage))" (click)="getRightPage()">></button>
+    
+  </div>
+</div>
+
+<div *ngIf="!data && !dataError"> <!--Showing loading message until table data is fetched-->
+  Loading the data....
+</div>
+<div *ngIf="dataError" class="error"> <!--display error message if received from server-->
+    {{dataError}}
+  </div>
+</section>

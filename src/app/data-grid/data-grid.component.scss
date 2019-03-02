@@ -1,0 +1,20 @@
+.paging {
+    input{
+        width: 35px;
+    }
+}
+
+.searchform{
+    margin: 10px 0;
+    .form-group{
+        display: flex;
+        flex-flow: wrap;
+        .form-align{
+            align-self: baseline;
+            margin: 5px 0;
+        }
+    }
+}
+.table-wrapper{
+    overflow: auto;
+}

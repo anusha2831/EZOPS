@@ -1,1 +1,84 @@
 /* You can add global styles to this file, and also import other style files */
+/*@import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');*/
+@import 'variables';
+
+//base-styles
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;    
+    font-size: $fs-normal;
+}
+body ul, body ul li{
+    list-style: none;
+}
+a{
+    color: $secondary-color;
+    text-decoration: none;
+}
+fieldset{
+    display: inline-block;
+}
+p{
+    margin:5px 0;
+}
+.container{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+table, th, td {
+    border: 1px solid #74777c;
+    border-collapse: collapse;
+    background-color: #f2f5f9;
+}
+th, td {
+    padding:5px 10px;
+}
+table th{
+    cursor: pointer;
+}
+table th:hover{
+    color: $bg-color-purple;
+}
+button{
+    color: #fff;
+    background-color: $bg-color-purple;
+    border:1px solid $bg-color-purple;
+    text-align: center;
+    vertical-align: middle;  
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin: 2px;     
+}
+button:disabled{
+    opacity: 0.6;
+}
+.lpad10{
+    padding-left: 10px;
+}
+.textError{
+    color: red;
+    text-align: end;
+    font-size: $fs-normal;
+}
+.error{
+    color: red;
+}
+.data-grid,.chart-container{
+    margin: 0 auto;
+    max-width: 1100px;
+    padding: 75px 10px 0 10px;
+}
+.pie-chart,.bar-chart{
+    border:1px solid black;
+    margin-top:15px;
+}
+
+@media screen and (min-width: 992px){
+
+body{
+    font-size: $fds-normal;
+}
+
+}

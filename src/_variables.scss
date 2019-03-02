@@ -1,0 +1,32 @@
+//variables
+$primary-color: #232323;
+$secondary-color: #ffffff;
+$bright-color: red;
+$bg-color-std: #ffffff;
+$bg-color-purple: #0d56c3; 
+//font-sizes--mobile and tablet
+$fs-normal:12px;
+$fs-l-heading: 20px;
+$fs-m-heading: 18px;
+$fs-s-heading: 16px;
+$dis-flex: flex;
+
+//font-sizes--desktop
+$fds-normal:14px;
+$fds-l-heading: 25px;
+$fds-m-heading: 20px;
+$fds-s-heading: 18px;
+
+//extend/Inheritance
+%flex-row{    
+    display: $dis-flex;
+    flex-direction: row;
+}
+
+%flex-col{    
+    display: $dis-flex;
+    flex-direction: column;
+}
+
+
+ 
