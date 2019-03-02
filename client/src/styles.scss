@@ -41,13 +41,19 @@ table th{
 table th:hover{
     color: $bg-color-purple;
 }
+select,input{
+    border-radius: 3px;
+    padding: 5px;
+    margin-left: 3px;
+    border:1px solid rgb(169,169,169)
+}
 button{
     color: #fff;
     background-color: $bg-color-purple;
     border:1px solid $bg-color-purple;
     text-align: center;
     vertical-align: middle;  
-    padding: 5px 10px;
+    padding: 7px 10px;
     border-radius: 3px;
     margin: 2px;     
 }
