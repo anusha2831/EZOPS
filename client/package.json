@@ -24,7 +24,7 @@
     "angular-highcharts": "^7.1.0",
     "body-parser": "^1.18.3",
     "core-js": "^2.6.5",
-    "highcharts": "^7.0.3",
+    "highcharts": "^9.0.0",
     "rxjs": "^6.4.0",
     "rxjs-compat": "^6.4.0",
     "zone.js": "^0.8.29"
